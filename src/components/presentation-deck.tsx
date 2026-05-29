@@ -549,6 +549,18 @@ export function PresentationDeck() {
                     )}
                   </div>
                 </div>
+
+                <div className="mt-6 rounded-[1.5rem] border border-slate-200/80 bg-slate-100/75 px-5 py-4 text-left shadow-[0_12px_32px_rgba(15,23,42,0.06)] backdrop-blur sm:px-6">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Privacy note
+                  </p>
+                  <p className="mt-2 text-sm leading-7 text-slate-700 sm:text-[0.95rem]">
+                    These case studies were shared with permission from the businesses featured. Certain sensitive information
+                    {" "}including business names, portions of revenue data, lead information, and internal business metrics
+                    {" "}has been intentionally redacted to respect client privacy while still showcasing the overall campaign
+                    performance and results.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -528,22 +528,13 @@ export function PresentationDeck() {
 
                   <div>
                     {currentCase.metaShot ? (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setLightbox({
-                            src: currentCase.metaShot as string,
-                            alt: `${currentCase.industry} Meta Ads screenshot`,
-                          })
-                        }
-                        className="screenshot-frame block w-full cursor-zoom-in p-0 transition-transform duration-300 hover:-translate-y-0.5"
-                      >
+                      <div className="screenshot-frame block w-full p-0">
                         <img
                           src={currentCase.metaShot}
                           alt={`${currentCase.industry} Meta Ads screenshot`}
                           className="h-auto max-h-[640px] w-full object-contain"
                         />
-                      </button>
+                      </div>
                     ) : (
                       <PlaceholderShot title="Meta Ads screenshot placeholder" subtitle="Replace this area with campaign manager screenshots, ad-level breakdowns, or account summaries later." />
                     )}

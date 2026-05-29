@@ -21,4 +21,7 @@ export default defineConfig({
   resolve: {
     dedupe: ["react", "react-dom", "@tanstack/react-start", "@tanstack/react-router"],
   },
+  ssr: {
+    noExternal: true,
+  },
 });

@@ -10,6 +10,11 @@ import {
 
 import appCss from "../styles.css?url";
 
+const SITE_URL = "https://growthdeck-six.vercel.app";
+const DEFAULT_TITLE = "GrowthDeck | Performance Marketing Case Studies";
+const DEFAULT_DESCRIPTION =
+  "GrowthDeck showcases performance marketing case studies, campaign creative, and lead generation results for contractor and home service brands.";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -72,23 +77,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "An interactive agency presentation website showcasing case studies and company philosophy." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "An interactive agency presentation website showcasing case studies and company philosophy." },
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESCRIPTION },
+      { name: "author", content: "GrowthDeck" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:title", content: DEFAULT_TITLE },
+      { property: "og:description", content: DEFAULT_DESCRIPTION },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "An interactive agency presentation website showcasing case studies and company philosophy." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/be114606-a152-4fb3-a527-bfb508ad86e8/id-preview-18ce55a5--d83482a5-501c-42f3-9489-98c020d3de21.lovable.app-1780018997914.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/be114606-a152-4fb3-a527-bfb508ad86e8/id-preview-18ce55a5--d83482a5-501c-42f3-9489-98c020d3de21.lovable.app-1780018997914.png" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: "GrowthDeck" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { name: "twitter:description", content: DEFAULT_DESCRIPTION },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "canonical",
+        href: SITE_URL,
       },
     ],
   }),

@@ -5,17 +5,22 @@ import { PresentationDeck } from "@/components/presentation-deck";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Marketing Agency Presentation Website" },
+      { title: "GrowthDeck | Lead Generation Case Studies for Contractors" },
       {
         name: "description",
         content:
-          "A modern interactive agency presentation website with slideshow-style sections, case studies, animated storytelling, and premium SaaS-inspired design.",
+          "Explore GrowthDeck's contractor marketing case studies, campaign screenshots, creative examples, and lead generation outcomes across home service niches.",
       },
-      { property: "og:title", content: "Marketing Agency Presentation Website" },
+      {
+        name: "keywords",
+        content:
+          "contractor marketing, lead generation, meta ads case studies, home services marketing, growth deck, agency presentation",
+      },
+      { property: "og:title", content: "GrowthDeck | Lead Generation Case Studies for Contractors" },
       {
         property: "og:description",
         content:
-          "A premium agency presentation experience blending a case study deck with a modern SaaS website.",
+          "A polished performance marketing presentation featuring real contractor case studies, ad creative, and campaign outcomes.",
       },
     ],
   }),

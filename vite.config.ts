@@ -1,17 +1,24 @@
-// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
-// or the app will break with duplicate plugins:
-//   - tanstackStart, viteReact, tailwindcss, tsConfigPaths, nitro (build-only using cloudflare as a default target),
-//     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
-//     error logger plugins, and sandbox detection (port/host/strictPort).
-// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import tailwindcss from "@tailwindcss/vite";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import react from "@vitejs/plugin-react";
+import tsConfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  // Force Nitro for Vercel and target the correct runtime preset for this host.
-  nitro: { preset: "vercel" },
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
+  plugins: [
+    tsConfigPaths(),
+    tailwindcss(),
+    tanstackRouter({ target: "react", autoCodeSplitting: true }),
+    tanstackStart({
+      server: { entry: "server" },
+      customViteReactPlugin: true,
+      target: "vercel",
+      nitro: { preset: "vercel" },
+    }),
+    react(),
+  ],
+  resolve: {
+    dedupe: ["react", "react-dom", "@tanstack/react-start", "@tanstack/react-router"],
   },
 });

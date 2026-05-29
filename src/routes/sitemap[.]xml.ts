@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "";
+const BASE_URL = "https://growthdeck-six.vercel.app";
 
 interface SitemapEntry {
   path: string;
@@ -14,7 +14,14 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries: SitemapEntry[] = [{ path: "/", changefreq: "weekly", priority: "1.0" }];
+        const entries: SitemapEntry[] = [
+          {
+            path: "/",
+            lastmod: "2026-05-29",
+            changefreq: "weekly",
+            priority: "1.0",
+          },
+        ];
 
         const urls = entries.map((entry) =>
           [

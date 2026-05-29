@@ -1,4 +1,4 @@
-import { cp, mkdir, rm, stat } from "node:fs/promises";
+import { cp, mkdir, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
@@ -26,5 +26,18 @@ await mkdir(serverFuncDir, { recursive: true });
 await cp(path.join(distDir, "client"), staticDir, { recursive: true });
 await cp(path.join(distDir, "server"), serverFuncDir, { recursive: true });
 await cp(path.join(distDir, "config.json"), path.join(outputDir, "config.json"));
+await writeFile(
+  path.join(serverFuncDir, ".vc-config.json"),
+  JSON.stringify(
+    {
+      runtime: "nodejs24.x",
+      handler: "server.js",
+      launcherType: "Nodejs",
+      supportsResponseStreaming: true,
+    },
+    null,
+    2,
+  ),
+);
 
 console.log("Prepared .vercel/output from Nitro dist artifacts.");

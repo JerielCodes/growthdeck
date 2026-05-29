@@ -39,5 +39,9 @@ await writeFile(
     2,
   ),
 );
+await writeFile(
+  path.join(serverFuncDir, "package.json"),
+  JSON.stringify({ type: "module" }, null, 2),
+);
 
 console.log("Prepared .vercel/output from Nitro dist artifacts.");
